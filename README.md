@@ -50,7 +50,14 @@ Ce projet est une application backend pour la gestion des cours, incluant des fo
 
 ### `app.js`
 1. **Comment organiser le point d'entrée de l'application ?**
-Initialiser les connexions, configurer les middlewares et monter les routes.
+- Initialiser les connexions, configurer les middlewares et monter les routes.
 
 2. **Quelle est la meilleure façon de gérer le démarrage de l'application ?**
-En utilisant des blocs try-catch pour capturer et gérer les erreurs au démarrage.
+- En utilisant des blocs try-catch pour capturer et gérer les erreurs au démarrage.
+
+### `.env`
+1. **Quelles sont les informations sensibles à ne jamais commiter ?**
+- Il ne faut jamais commettre de mots de passe, clés API, certificats, informations personnelles ou de configurations sensibles dans un dépôt Git. Utilisez un `.gitignore` et des gestionnaires de secrets pour sécuriser ces données.
+
+2. **Pourquoi utiliser des variables d'environnement ?**
+- Les variables d'environnement permettent de stocker des informations sensibles et des configurations spécifiques à l'environnement sans les inclure directement dans le code source. Cela améliore la sécurité, la portabilité et la flexibilité des applications en permettant de modifier ces valeurs sans toucher au code.
