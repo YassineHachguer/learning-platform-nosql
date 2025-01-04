@@ -2,13 +2,16 @@
 // Question: Quelle est la meilleure façon de gérer le démarrage de l'application ?
 
 const express = require('express');
+const { connectMongo, connectRedis, closeConnections } = require('./config/db');
 const config = require('./config/env');
-const db = require('./config/db');
-
 const courseRoutes = require('./routes/courseRoutes');
-const studentRoutes = require('./routes/studentRoutes');
+
+
 
 const app = express();
+app.use(express.json());
+// Routes
+app.use('/courses', courseRoutes);
 
 async function startServer() {
   try {

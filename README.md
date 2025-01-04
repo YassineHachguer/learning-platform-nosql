@@ -61,3 +61,5 @@ Ce projet est une application backend pour la gestion des cours, incluant des fo
 
 2. **Pourquoi utiliser des variables d'environnement ?**
 - Les variables d'environnement permettent de stocker des informations sensibles et des configurations spécifiques à l'environnement sans les inclure directement dans le code source. Cela améliore la sécurité, la portabilité et la flexibilité des applications en permettant de modifier ces valeurs sans toucher au code.
+
+
