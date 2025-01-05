@@ -63,3 +63,41 @@ Ce projet est une application backend pour la gestion des cours, incluant des fo
 - Les variables d'environnement permettent de stocker des informations sensibles et des configurations spécifiques à l'environnement sans les inclure directement dans le code source. Cela améliore la sécurité, la portabilité et la flexibilité des applications en permettant de modifier ces valeurs sans toucher au code.
 
 
+## Explication des Choix Techniques
+
+### `src/app.js`
+
+- **Initialiser les connexions aux bases de données** : Cette étape est cruciale pour s'assurer que l'application peut accéder aux données nécessaires. La connexion à MongoDB et Redis est initialisée avant de démarrer le serveur.
+- **Configurer les middlewares Express** : Les middlewares permettent de gérer les requêtes et les réponses de manière modulaire. Leur configuration avant le démarrage du serveur garantit que toutes les requêtes passent par les middlewares.
+- **Monter les routes** : Les routes définissent les points d'entrée de l'API. Les monter avant de démarrer le serveur assure que toutes les routes sont prêtes à traiter les requêtes dès que le serveur est en ligne.
+- **Démarrer le serveur** : Cette étape démarre effectivement le serveur et le rend capable de recevoir des requêtes.
+- **Implémenter la fermeture propre des connexions** : Gérer la fermeture propre des connexions aux bases de données garantit que les ressources sont correctement libérées et qu'il n'y a pas de fuites de ressources.
+
+### `src/config/env.js`
+
+- **Validation des variables d'environnement** : Valider les variables d'environnement au démarrage est essentiel pour s'assurer que toutes les configurations nécessaires sont présentes. Cela évite des erreurs à l'exécution dues à des configurations manquantes.
+- **Lever une erreur explicative si une variable manque** : Cela permet de détecter rapidement les problèmes de configuration et de fournir des messages d'erreur clairs, facilitant ainsi le débogage.
+
+### `src/services/redisService.js`
+
+- **Fonction générique de cache** : Implémenter une fonction générique pour mettre en cache les données permet de réutiliser cette logique à différents endroits de l'application, améliorant ainsi la maintenabilité et la cohérence.
+- **Exporter les fonctions utilitaires** : Exporter ces fonctions permet de les utiliser dans d'autres parties de l'application, favorisant la modularité et la réutilisation du code.
+
+### `src/controllers/courseController.js`
+
+- **Séparer la logique métier des routes** : Cela facilite la gestion du code en séparant les préoccupations. Les contrôleurs gèrent la logique métier tandis que les routes définissent les points d'entrée de l'API.
+- **Implémenter la création d'un cours** : Utiliser les services pour la logique réutilisable garantit que la logique métier est centralisée et réutilisable à travers l'application.
+- **Exporter les fonctions du contrôleur** : Exporter ces fonctions permet de les utiliser dans les routes, assurant ainsi une séparation claire entre la définition des routes et la logique métier.
+
+### `src/services/mongoService.js`
+
+- **Fonction générique de recherche par ID** : Implémenter une fonction générique pour rechercher par ID permet de réutiliser cette logique dans différentes parties de l'application, améliorant ainsi la maintenabilité et la cohérence.
+- **Exporter les fonctions utilitaires** : Exporter ces fonctions permet de les utiliser dans d'autres parties de l'application, favorisant la modularité et la réutilisation du code.
+
+### `src/config/db.js`
+
+- **Créer un module séparé pour les connexions aux bases de données** : Cela centralise la logique de connexion, facilitant ainsi la gestion et la réutilisation des connexions à MongoDB et Redis.
+- **Gérer proprement la fermeture des connexions** : Assurer une fermeture propre des connexions aux bases de données garantit que les ressources sont correctement libérées et qu'il n'y a pas de fuites de ressources.
+- **Exporter les clients et fonctions utiles** : Exporter ces fonctions permet de les utiliser dans d'autres parties de l'application, assurant ainsi une utilisation cohérente des connexions aux bases de données.
+
+
