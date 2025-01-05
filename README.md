@@ -100,4 +100,39 @@ Ce projet est une application backend pour la gestion des cours, incluant des fo
 - **Gérer proprement la fermeture des connexions** : Assurer une fermeture propre des connexions aux bases de données garantit que les ressources sont correctement libérées et qu'il n'y a pas de fuites de ressources.
 - **Exporter les clients et fonctions utiles** : Exporter ces fonctions permet de les utiliser dans d'autres parties de l'application, assurant ainsi une utilisation cohérente des connexions aux bases de données.
 
+## Instructions pour lancer le projet
+### Configurer Redis avec Docker:
+- Pour moi j'ai choisi d'utiliser directement l'image Redis depuis docker pour cela voici les commandes que j'ai utiliser:
+![alt text](image-1.png)
+
+- Une fois la commande est executé le contenneur démarre :
+![alt text](image.png)
+
+### Démarrer MongoDB:
+- Pour moi j'ai MongoDB installé dans ma machine, il faut qu'il soit en cours d'éxecution sinon éxecuter la commande suivante:
+![alt text](image-2.png)
+
+### Démarrer l'application
+- Utiliser la commande `npm start`
+![alt text](image-3.png)
+
+### Tester les API avec Postman
+- Au début notre base de données est vide il contient aucun cours:
+![alt text](image-4.png)
+
+- Essayons d'ajouter quelques cours à notre collection en utilisant Postman:
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+- Accédons à Mongo Compass pour voir si les données sont vraiment étées ajoutées:
+![alt text](image-7.png) 
+
+- Accédons via le web sur le port 3000:
+- `getById`:
+![alt text](image-8.png)
+
+- `getCourseStats`:
+![alt text](image-9.png)
+
+
 
