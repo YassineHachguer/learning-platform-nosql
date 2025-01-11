@@ -103,36 +103,36 @@ Ce projet est une application backend pour la gestion des cours, incluant des fo
 ## Instructions pour lancer le projet
 ### Configurer Redis avec Docker:
 - Pour moi j'ai choisi d'utiliser directement l'image Redis depuis docker pour cela voici les commandes que j'ai utiliser:
-![alt text](images/image-1.png)
+![alt text](src/images/image-1.png)
 
 - Une fois la commande est executé le contenneur démarre :
-![alt text](images/image.png)
+![alt text](src/images/image.png)
 
 ### Démarrer MongoDB:
 - Pour moi j'ai MongoDB installé dans ma machine, il faut qu'il soit en cours d'éxecution sinon éxecuter la commande suivante:
-![alt text](images/image-2.png)
+![alt text](src/images/image-2.png)
 
 ### Démarrer l'application
 - Utiliser la commande `npm start`
-![alt text](images/image-3.png)
+![alt text](src/images/image-3.png)
 
 ### Tester les API avec Postman
 - Au début notre base de données est vide il contient aucun cours:
-![alt text](images/image-4.png)
+![alt text](src/images/image-4.png)
 
 - Essayons d'ajouter quelques cours à notre collection en utilisant Postman:
-![alt text](images/image-5.png)
+![alt text](src/images/image-5.png)
 ![alt text](images/image-6.png)
 
 - Accédons à Mongo Compass pour voir si les données sont vraiment étées ajoutées:
-![alt text](images/image-7.png) 
+![alt text](src/images/image-7.png) 
 
 - Accédons via le web sur le port 3000:
 - `getById`:
-![alt text](images/image-8.png)
+![alt text](src/images/image-8.png)
 
 - `getCourseStats`:
-![alt text](images/image-9.png)
+![alt text](src/images/image-9.png)
 
 
 
